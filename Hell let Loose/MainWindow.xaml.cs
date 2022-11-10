@@ -19,6 +19,7 @@ using System.Threading;
 using System.IO;
 
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace Main
 {
@@ -177,10 +178,12 @@ namespace Main
       string folder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
       string specificFolder = folder + "/HLLMod";
       string jsonFile = specificFolder + "/Settings.json";
-     
-
-
       SaveSettings.saveData(cBoxPosition.SelectedIndex, cBoxTyp.SelectedIndex, txtBoxMapnorth.Text);
+    }
+    private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+    {
+      Regex regex = new Regex("[^0-9]+");
+      e.Handled = regex.IsMatch(e.Text);
     }
   }
 }
