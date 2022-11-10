@@ -48,7 +48,7 @@ namespace Main
     {
       
       
-      Action action = new Action();
+      
       Coordinates ary = new Coordinates(545, 514);
       int mapnorth = 0;
       int aryalingment = 90;
@@ -56,7 +56,7 @@ namespace Main
       Thread.Sleep(2000);
       do
       {
-        action.OpenMap();
+        Action.OpenMap();
         Coordinates target = Detection.GetTarget();
 
         double distance = Formula.GetHypotenuse(target, ary);
@@ -74,7 +74,7 @@ namespace Main
             break;
 
         } int angel = (int)Formula.angleCalculation(target, ary, mapnorth, aryalingment);
-        action.OpenMap();
+        Action.OpenMap();
 
         Thread.Sleep(1000);
 
@@ -88,11 +88,11 @@ namespace Main
           lastMil = MilonScreen;
           if (MilonScreen > mil)
           {
-            action.TurnDown();
+            Action.TurnDown();
           }
           if (MilonScreen < mil)
           {
-            action.TurnUp();
+            Action.TurnUp();
           }
           
           MilonScreen = Detection.Imgtotxt(1800, 945, 50, 20, lastMil);
@@ -114,17 +114,17 @@ namespace Main
         {
           AngelonScreen += 360;
         }
-        action.SwitchSeatTo(1);
+        Action.SwitchSeatTo(1);
         while (AngelonScreen != angel)
         {
           lastAngel = AngelonScreen;
           if (AngelonScreen > angel)
           {
-            action.TurnLeft();
+            Action.TurnLeft();
           }
           if (AngelonScreen-47 < angel)
           {
-            action.TurnRight();
+            Action.TurnRight();
           }
           AngelonScreen = Detection.Imgtotxt(1033, 960, 22, 12, lastAngel)-47;
           if (AngelonScreen < 0)
@@ -132,16 +132,13 @@ namespace Main
             AngelonScreen += 360;
           }
         }
-        action.SwitchSeatTo(0);
+        Action.SwitchSeatTo(0);
 
       } while (true);
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-      
-     
-      Action action = new Action();
       Coordinates ary = new Coordinates(545, 514);
       int mapnorth = 0;
       int aryalingment = 90;
