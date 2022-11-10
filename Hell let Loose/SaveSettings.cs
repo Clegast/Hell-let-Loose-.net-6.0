@@ -63,18 +63,5 @@ namespace Main
       string json = JsonSerializer.Serialize(settingList);
       File.WriteAllText(jsonFile, json);
     }
-    /*/public int[] getData()
-    {
-      string folder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
-      string specificFolder = folder + "/HLLMod";
-      string jsonFile = specificFolder + "/Settings.json";
-      
-      string text = File.ReadAllText(jsonFile);
-
-      int[] settings = JsonSerializer.Deserialize<int[]>(text);
-
-      return settings;
-    }
-    /*/
   }
 }

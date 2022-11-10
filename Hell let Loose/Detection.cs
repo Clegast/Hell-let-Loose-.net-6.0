@@ -37,13 +37,11 @@ namespace Main
       Bitmap OldScreenshot = null;
       Bitmap NewScreenshot = null;
 
-      //Imgediting imgediting = new Imgediting();
 
       OldScreenshot = Imgediting.CropScreenshot(695, 268, 528, 528);
 
       Thread.Sleep(10000);
       NewScreenshot = Imgediting.CropScreenshot(695, 268, 528, 528);
-      //NewScreenshot.Save("C:\\Users\\linus\\Desktop\\test2.png");
 
       List<Suspeced> Posiblemarkers = new List<Suspeced>();
       for (int Y = 0; Y < NewScreenshot.Height; Y++)
@@ -60,13 +58,12 @@ namespace Main
                 if (OldScreenshot.GetPixel(Xtest, Ytest) != NewScreenshot.GetPixel(Xtest, Ytest))
                 {
                   ChanchedPixel++;
-                  //Console.WriteLine(ChanchedPixel);
+                  
                 }
             }
             if (ChanchedPixel >= 200)
             {
               Suspeced a = new Suspeced(Imgediting.Crop(X, Y, 16, 16, OldScreenshot), Imgediting.Crop(X, Y, 16, 16, NewScreenshot), X, Y);
-              //imgediting.Crop(X, Y, 16, 16, NewScreenshot).Save("C:\\Users\\linus\\Desktop\\test.png");
               Posiblemarkers.Add(a);
               Y = Y + 16;
             }
