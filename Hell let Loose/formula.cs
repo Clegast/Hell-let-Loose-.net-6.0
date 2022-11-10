@@ -35,11 +35,8 @@ namespace Main
     {
       double xMeters = target.xmetersdifference(ary);
       double yMeters = target.ymetersdifference(ary);
-      //if (xMeters < 0.0) { xMeters *= (-1); }
-      //if (yMeters < 0.0) { yMeters *= (-1); }
-      yMeters = -100;
-      xMeters = 100;
-      double angleTan = (Math.Atan(xMeters / yMeters))*180/Math.PI;
+      
+      double angleTan = (Math.Atan(yMeters / xMeters))*180/Math.PI;
       return mapnorth + AlignmentAry + angleTan;
     }
   }
