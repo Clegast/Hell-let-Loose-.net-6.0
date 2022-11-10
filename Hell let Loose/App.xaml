@@ -1,7 +1,7 @@
-﻿<Application x:Class="Hell_let_Loose.App"
+﻿<Application x:Class="Main.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Hell_let_Loose"
+             xmlns:local="clr-namespace:Main"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

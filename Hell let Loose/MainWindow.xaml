@@ -1,12 +1,31 @@
-﻿<Window x:Class="Hell_let_Loose.MainWindow"
+﻿<Window x:Class="Main.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Hell_let_Loose"
+        xmlns:local="clr-namespace:Main"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800"
+        Background= "LightGray">
+  <Grid Margin="-3,0,3,0">
+    <ComboBox x:Name="cBoxPosition" HorizontalAlignment="Left" Margin="40,124,0,0" VerticalAlignment="Top" Width="120" IsSynchronizedWithCurrentItem="True" FontFamily="Calibri" >
+      <ComboBoxItem Content="Oben"/>
+      <ComboBoxItem Content="Unten"/>
+      <ComboBoxItem Content="Links"/>
+      <ComboBoxItem Content="Rechts"/>
+    </ComboBox>
+    <Label x:Name="lbl1"  Content="Position der Artellerie" HorizontalAlignment="Left" Margin="40,88,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Calibri" FontWeight="Normal"/>
+    <Button x:Name="StartButton" Content="Start" HorizontalAlignment="Center" Margin="0,358,0,0" VerticalAlignment="Top" Click="StartButton_Click" FontFamily="Calibri" FontSize="16"/>
+    <ComboBox x:Name="cBoxTyp" HorizontalAlignment="Left" Margin="238,124,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri">
+      <ComboBoxItem Content="Ge/Us"/>
+      <ComboBoxItem Content="Ru"/>
+    </ComboBox>
+    <Label x:Name="lbl2" Content="Artellerie Typ" HorizontalAlignment="Left" Margin="238,93,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Calibri"/>
+    <Button x:Name="btnStop" Content="Button" HorizontalAlignment="Left" Margin="497,358,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16"/>
+    <TextBox x:Name="txtBoxMapnorth" HorizontalAlignment="Left" Margin="40,232,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="16"/>
+    <Label x:Name="lbl3" Content="Map North" HorizontalAlignment="Left" Margin="40,201,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16"/>
+    <Button Content="Test" HorizontalAlignment="Left" Margin="560,124,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+    <Button x:Name="btn4" Content="saveSettings" HorizontalAlignment="Left" Margin="617,358,0,0" VerticalAlignment="Top" Click="btn4_Click"/>
 
-    </Grid>
+  </Grid>
 </Window>

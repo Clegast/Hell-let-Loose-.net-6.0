@@ -1,0 +1,17 @@
+body {
+    margin: 0px;
+}
+
+p, h2 {
+    margin-left:20px ;
+    margin-right: 150px;
+}
+
+.boxHeader{
+    border-bottom-style: solid;
+    margin: none;
+}
+
+.Header {
+    margin-left: 20px;
+}
