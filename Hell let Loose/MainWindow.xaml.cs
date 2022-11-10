@@ -8,16 +8,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
-
 using System.IO;
-
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
@@ -32,7 +29,7 @@ namespace Main
     public MainWindow()
     {
       InitializeComponent();
-      
+
 
       int[] settings = SaveSettings.createFiles();
       cBoxPosition.SelectedIndex = settings[0];
@@ -47,9 +44,9 @@ namespace Main
 
     private void StartButton_Click(object sender, RoutedEventArgs e)
     {
-      
-      
-      
+
+
+
       Coordinates ary = new Coordinates(545, 514);
       int mapnorth = 0;
       int aryalingment = 90;
@@ -74,12 +71,13 @@ namespace Main
             mil = (int)Math.Round(Formula.ruMetersToMill(distance));
             break;
 
-        } int angel = (int)Formula.angleCalculation(target, ary, mapnorth, aryalingment);
+        }
+        int angel = (int)Formula.angleCalculation(target, ary, mapnorth, aryalingment);
         Action.OpenMap();
 
         Thread.Sleep(1000);
 
-       
+
         int MilonScreen = Detection.Imgtotxt(1800, 945, 50, 20, 622);
         int lastMil = MilonScreen;
 
@@ -95,21 +93,21 @@ namespace Main
           {
             Action.TurnUp();
           }
-          
+
           MilonScreen = Detection.Imgtotxt(1800, 945, 50, 20, lastMil);
           System.GC.Collect();
           if (MilonScreen == mil - 1)
           {
             break;
           }
-          else if(MilonScreen == mil + 1)
+          else if (MilonScreen == mil + 1)
           {
             break;
           }
-          
+
         }
-        
-        int AngelonScreen = Detection.Imgtotxt(1033, 960, 22, 12, 0)-47;
+
+        int AngelonScreen = Detection.Imgtotxt(1033, 960, 22, 12, 0) - 47;
         int lastAngel = AngelonScreen;
         if (AngelonScreen < 0)
         {
@@ -123,11 +121,11 @@ namespace Main
           {
             Action.TurnLeft();
           }
-          if (AngelonScreen-47 < angel)
+          if (AngelonScreen - 47 < angel)
           {
             Action.TurnRight();
           }
-          AngelonScreen = Detection.Imgtotxt(1033, 960, 22, 12, lastAngel)-47;
+          AngelonScreen = Detection.Imgtotxt(1033, 960, 22, 12, lastAngel) - 47;
           if (AngelonScreen < 0)
           {
             AngelonScreen += 360;
@@ -145,7 +143,7 @@ namespace Main
       int aryalingment = 90;
       string faction = "Us";
       Thread.Sleep(2000);
-        Coordinates target = Detection.GetTarget();
+      Coordinates target = Detection.GetTarget();
       double temp = target.xcordinate;
       Console.WriteLine(temp);
       temp = target.ycordinate;
