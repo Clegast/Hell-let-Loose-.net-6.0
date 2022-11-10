@@ -25,7 +25,7 @@
     <TextBox x:Name="txtBoxMapnorth" HorizontalAlignment="Left" Margin="40,232,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="16"/>
     <Label x:Name="lbl3" Content="Map North" HorizontalAlignment="Left" Margin="40,201,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16"/>
     <Button Content="Test" HorizontalAlignment="Left" Margin="560,124,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-    <Button x:Name="btn4" Content="saveSettings" HorizontalAlignment="Left" Margin="617,358,0,0" VerticalAlignment="Top" Click="btn4_Click"/>
+    <Button x:Name="SaveBtn" Content="saveSettings" HorizontalAlignment="Left" Margin="617,358,0,0" VerticalAlignment="Top" Click="SaveBtn_Click"/>
 
   </Grid>
 </Window>

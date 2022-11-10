@@ -172,7 +172,7 @@ namespace Main
 
 
     }
-    private void btn4_Click(object sender, RoutedEventArgs e)
+    private void SaveBtn_Click(object sender, RoutedEventArgs e)
     {
       string folder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
       string specificFolder = folder + "/HLLMod";
