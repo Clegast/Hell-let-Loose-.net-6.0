@@ -31,9 +31,9 @@ namespace Main
     public MainWindow()
     {
       InitializeComponent();
-      SaveSettings savesettings = new SaveSettings();
+      
 
-      int[] settings = savesettings.createFiles();
+      int[] settings = SaveSettings.createFiles();
       cBoxPosition.SelectedIndex = settings[0];
       cBoxTyp.SelectedIndex = settings[1];
       txtBoxMapnorth.Text = Convert.ToString(settings[2]);
@@ -177,10 +177,10 @@ namespace Main
       string folder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
       string specificFolder = folder + "/HLLMod";
       string jsonFile = specificFolder + "/Settings.json";
-      SaveSettings savesettings = new SaveSettings();
+     
 
 
-      savesettings.saveData(cBoxPosition.SelectedIndex, cBoxTyp.SelectedIndex, txtBoxMapnorth.Text);
+      SaveSettings.saveData(cBoxPosition.SelectedIndex, cBoxTyp.SelectedIndex, txtBoxMapnorth.Text);
     }
   }
 }
