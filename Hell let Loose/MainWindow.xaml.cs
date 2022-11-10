@@ -51,7 +51,7 @@ namespace Main
       
       Coordinates ary = new Coordinates(545, 514);
       int mapnorth = 0;
-      int aryalingment = 90;
+      int aryalingment = 0;
       string faction = "Us";
       Thread.Sleep(2000);
       do
