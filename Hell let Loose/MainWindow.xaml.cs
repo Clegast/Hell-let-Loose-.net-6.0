@@ -8,13 +8,16 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
+
 using System.IO;
+
 using System.Text.Json;
 
 namespace Main
@@ -24,12 +27,13 @@ namespace Main
   /// </summary>
   public partial class MainWindow : Window
   {
+
     public MainWindow()
     {
       InitializeComponent();
-      SaveSettings savesettings = new SaveSettings();
+      
 
-      int[] settings = savesettings.createFiles();
+      int[] settings = SaveSettings.createFiles();
       cBoxPosition.SelectedIndex = settings[0];
       cBoxTyp.SelectedIndex = settings[1];
       txtBoxMapnorth.Text = Convert.ToString(settings[2]);
@@ -43,8 +47,8 @@ namespace Main
     private void StartButton_Click(object sender, RoutedEventArgs e)
     {
       
-      Formula formula = new Formula();
-      Action action = new Action();
+      
+      
       Coordinates ary = new Coordinates(545, 514);
       int mapnorth = 0;
       int aryalingment = 90;
@@ -52,25 +56,25 @@ namespace Main
       Thread.Sleep(2000);
       do
       {
-        action.OpenMap();
+        Action.OpenMap();
         Coordinates target = Detection.GetTarget();
 
-        double distance = formula.GetHypotenuse(target, ary);
+        double distance = Formula.GetHypotenuse(target, ary);
         int mil = 0;
         switch (faction)
         {
           case "Us":
-            mil = (int)Math.Round(formula.usMetersToMill(distance));
+            mil = (int)Math.Round(Formula.usMetersToMill(distance));
             break;
           case "Gr":
-            mil = (int)Math.Round(formula.usMetersToMill(distance));
+            mil = (int)Math.Round(Formula.usMetersToMill(distance));
             break;
           case "Ru":
-            mil = (int)Math.Round(formula.ruMetersToMill(distance));
+            mil = (int)Math.Round(Formula.ruMetersToMill(distance));
             break;
 
-        } int angel = (int)formula.angleCalculation(target, ary, mapnorth, aryalingment);
-        action.OpenMap();
+        } int angel = (int)Formula.angleCalculation(target, ary, mapnorth, aryalingment);
+        Action.OpenMap();
 
         Thread.Sleep(1000);
 
@@ -84,11 +88,11 @@ namespace Main
           lastMil = MilonScreen;
           if (MilonScreen > mil)
           {
-            action.TurnDown();
+            Action.TurnDown();
           }
           if (MilonScreen < mil)
           {
-            action.TurnUp();
+            Action.TurnUp();
           }
           
           MilonScreen = Detection.Imgtotxt(1800, 945, 50, 20, lastMil);
@@ -110,17 +114,17 @@ namespace Main
         {
           AngelonScreen += 360;
         }
-        action.SwitchSeatTo(1);
+        Action.SwitchSeatTo(1);
         while (AngelonScreen != angel)
         {
           lastAngel = AngelonScreen;
           if (AngelonScreen > angel)
           {
-            action.TurnLeft();
+            Action.TurnLeft();
           }
           if (AngelonScreen-47 < angel)
           {
-            action.TurnRight();
+            Action.TurnRight();
           }
           AngelonScreen = Detection.Imgtotxt(1033, 960, 22, 12, lastAngel)-47;
           if (AngelonScreen < 0)
@@ -128,16 +132,13 @@ namespace Main
             AngelonScreen += 360;
           }
         }
-        action.SwitchSeatTo(0);
+        Action.SwitchSeatTo(0);
 
       } while (true);
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-      
-      Formula formula = new Formula();
-      Action action = new Action();
       Coordinates ary = new Coordinates(545, 514);
       int mapnorth = 0;
       int aryalingment = 90;
@@ -149,23 +150,23 @@ namespace Main
       temp = target.ycordinate;
       Console.WriteLine(temp);
 
-      double distance = formula.GetHypotenuse(target, ary);
+      double distance = Formula.GetHypotenuse(target, ary);
       int mil = 0;
       switch (faction)
       {
         case "Us":
-          mil = (int)Math.Round(formula.usMetersToMill(distance));
+          mil = (int)Math.Round(Formula.usMetersToMill(distance));
           break;
         case "Gr":
-          mil = (int)Math.Round(formula.usMetersToMill(distance));
+          mil = (int)Math.Round(Formula.usMetersToMill(distance));
           break;
         case "Ru":
-          mil = (int)Math.Round(formula.ruMetersToMill(distance));
+          mil = (int)Math.Round(Formula.ruMetersToMill(distance));
           break;
 
       }
       Console.WriteLine(mil);
-      int angel = (int)formula.angleCalculation(target, ary, mapnorth, aryalingment);
+      int angel = (int)Formula.angleCalculation(target, ary, mapnorth, aryalingment);
       Console.WriteLine(angel);
 
 
@@ -176,10 +177,10 @@ namespace Main
       string folder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
       string specificFolder = folder + "/HLLMod";
       string jsonFile = specificFolder + "/Settings.json";
-      SaveSettings savesettings = new SaveSettings();
+     
 
 
-      savesettings.saveData(cBoxPosition.SelectedIndex, cBoxTyp.SelectedIndex, txtBoxMapnorth.Text);
+      SaveSettings.saveData(cBoxPosition.SelectedIndex, cBoxTyp.SelectedIndex, txtBoxMapnorth.Text);
     }
   }
 }

@@ -19,10 +19,10 @@ using System.Text.Json.Serialization;
 
 namespace Main
 {
-  internal class SaveSettings
+  internal static class SaveSettings
   {
 
-    public int[] createFiles()
+    public static int[] createFiles()
     {
       string folder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
       string specificFolder = folder + "/HLLMod";
@@ -41,7 +41,7 @@ namespace Main
         string text = File.ReadAllText(jsonFile);
         if (new FileInfo(jsonFile).Length != 0)
         {
-          int[] settings = JsonSerializer.Deserialize<int[]>(text);
+          int[]? settings = JsonSerializer.Deserialize<int[]>(text);
           return settings;
         }
       }
@@ -49,7 +49,7 @@ namespace Main
       return i;
     }
 
-    public void saveData(int boxPosition, int boxTyp, string mapNorth)
+    public static void saveData(int boxPosition, int boxTyp, string mapNorth)
     {
       string folder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
       string specificFolder = folder + "/HLLMod";

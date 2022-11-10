@@ -16,6 +16,8 @@ namespace Main
         Coordinates Target;
         public Suspeced()
         {
+            Topleft = new Coordinates(1, 1);
+            Target = new Coordinates(1,1);
 
         }
         public  Suspeced(Bitmap nomal, Bitmap sus,int X, int Y)

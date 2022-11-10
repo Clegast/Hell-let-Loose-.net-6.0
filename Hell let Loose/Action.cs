@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Main
 {
-    internal class Action
+    internal static class Action
     {
-        public void TurnRight()
+        public static void TurnRight()
         {
             Keypresses keypresses = new Keypresses();
             keypresses.press(keypresses.GetScanCodeShort("d"));
@@ -17,7 +17,7 @@ namespace Main
             keypresses.releas(keypresses.GetScanCodeShort("d"));
 
         }
-        public void TurnLeft()
+        public static void TurnLeft()
         {
             Keypresses keypresses = new Keypresses();
             keypresses.press(keypresses.GetScanCodeShort("a"));
@@ -25,7 +25,7 @@ namespace Main
             keypresses.releas(keypresses.GetScanCodeShort("a"));
 
         }
-        public void TurnUp()
+        public static void TurnUp()
         {
             Keypresses keypresses = new Keypresses();
             keypresses.press(keypresses.GetScanCodeShort("w"));
@@ -35,7 +35,7 @@ namespace Main
 
 
         }
-        public void TurnDown()
+        public static void TurnDown()
         {
             Keypresses keypresses = new Keypresses();
             keypresses.press(keypresses.GetScanCodeShort("s"));
@@ -48,7 +48,7 @@ namespace Main
         /// swutches seat wehne the player is in a vehicle or an artillery peas only seat one and tow worke (for now)
         /// </summary>
         /// <param name="SeatNumber">number of the seat to cance to starts at 0</param>
-        public void SwitchSeatTo(int SeatNumber)
+        public static void SwitchSeatTo(int SeatNumber)
         {
             Keypresses keypresses = new Keypresses();
             switch (SeatNumber)
@@ -72,7 +72,7 @@ namespace Main
 
 
         }
-        public void OpenMap()
+        public static void OpenMap()
         {
             Keypresses keypresses = new Keypresses();
             keypresses.press(keypresses.GetScanCodeShort("m"));
@@ -80,7 +80,7 @@ namespace Main
             keypresses.releas(keypresses.GetScanCodeShort("m"));
 
         }
-        public void Reload()
+        public static void Reload()
         {
             Keypresses keypresses = new Keypresses();
             keypresses.press(keypresses.GetScanCodeShort("r"));
@@ -90,7 +90,7 @@ namespace Main
 
         }
 
-        public void Fire()
+        public static void Fire()
         {
             Keypresses keypresses = new Keypresses();
             keypresses.mousclickleft(200);

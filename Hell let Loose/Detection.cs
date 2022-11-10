@@ -34,8 +34,8 @@ namespace Main
 
     public static List<Suspeced> Detecte()
     {
-      Bitmap OldScreenshot = null;
-      Bitmap NewScreenshot = null;
+      Bitmap? OldScreenshot = null;
+      Bitmap? NewScreenshot = null;
 
 
       OldScreenshot = Imgediting.CropScreenshot(695, 268, 528, 528);
