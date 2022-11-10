@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Drawing.Imaging;
 
 namespace Main
@@ -14,18 +13,12 @@ namespace Main
     //Function that takes a screenshot
     internal static Bitmap Screenshot()
     {
-      var bmpScreenshot = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
-                                     Screen.PrimaryScreen.Bounds.Height,
-                                     PixelFormat.Format32bppArgb);
-
-      var Screenshot = Graphics.FromImage(bmpScreenshot);
-
-      Screenshot.CopyFromScreen(Screen.PrimaryScreen.Bounds.X,
-                                Screen.PrimaryScreen.Bounds.Y,
-                                0,
-                                0,
-                                Screen.PrimaryScreen.Bounds.Size,
-                                CopyPixelOperation.SourceCopy);
+      using var bmpScreenshot = new Bitmap(1920, 1080);
+      using (var g = Graphics.FromImage(bmpScreenshot))
+      {
+        g.CopyFromScreen(0, 0, 0, 0,
+        bmpScreenshot.Size, CopyPixelOperation.SourceCopy);
+      }
 
       return bmpScreenshot;
     }
