@@ -8,13 +8,11 @@ using System.Threading.Tasks;
 namespace Main
 {
 
-  internal class Formula
+  internal static class Formula
   {
-    double xMeters = 0.0;
-    double yMeters = 0.0;
-    double Hypotenuse = 0.0;
+   
     
-    internal double GetHypotenuse(Coordinates target, Coordinates ary) {
+    internal static double GetHypotenuse(Coordinates target, Coordinates ary) {
       double xMeters = target.xmetersdifference(ary);
       double yMeters = target.ymetersdifference(ary);
       if (xMeters < 0.0) { xMeters *= (-1); }
@@ -22,16 +20,16 @@ namespace Main
       return  Math.Sqrt(xMeters * xMeters + yMeters * yMeters);
     }
 
-    internal double ruMetersToMill(double Hypotenuse){
+    internal static double ruMetersToMill(double Hypotenuse){
       return Hypotenuse * -0.2136691176 + 1141.721500;
     }
 
-    internal double usMetersToMill(double Hypotenuse)
+    internal static double usMetersToMill(double Hypotenuse)
     {
       return Hypotenuse * -0.237035714285714 + 1001.46547619048;
     }
 
-    internal double angleCalculation(Coordinates target, Coordinates ary, double mapnorth, double AlignmentAry)
+    internal static double angleCalculation(Coordinates target, Coordinates ary, double mapnorth, double AlignmentAry)
     {
       double xMeters = target.xmetersdifference(ary);
       double yMeters = target.ymetersdifference(ary);

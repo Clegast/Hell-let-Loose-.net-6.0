@@ -47,7 +47,7 @@ namespace Main
     private void StartButton_Click(object sender, RoutedEventArgs e)
     {
       
-      Formula formula = new Formula();
+      
       Action action = new Action();
       Coordinates ary = new Coordinates(545, 514);
       int mapnorth = 0;
@@ -59,21 +59,21 @@ namespace Main
         action.OpenMap();
         Coordinates target = Detection.GetTarget();
 
-        double distance = formula.GetHypotenuse(target, ary);
+        double distance = Formula.GetHypotenuse(target, ary);
         int mil = 0;
         switch (faction)
         {
           case "Us":
-            mil = (int)Math.Round(formula.usMetersToMill(distance));
+            mil = (int)Math.Round(Formula.usMetersToMill(distance));
             break;
           case "Gr":
-            mil = (int)Math.Round(formula.usMetersToMill(distance));
+            mil = (int)Math.Round(Formula.usMetersToMill(distance));
             break;
           case "Ru":
-            mil = (int)Math.Round(formula.ruMetersToMill(distance));
+            mil = (int)Math.Round(Formula.ruMetersToMill(distance));
             break;
 
-        } int angel = (int)formula.angleCalculation(target, ary, mapnorth, aryalingment);
+        } int angel = (int)Formula.angleCalculation(target, ary, mapnorth, aryalingment);
         action.OpenMap();
 
         Thread.Sleep(1000);
@@ -140,7 +140,7 @@ namespace Main
     private void Button_Click(object sender, RoutedEventArgs e)
     {
       
-      Formula formula = new Formula();
+     
       Action action = new Action();
       Coordinates ary = new Coordinates(545, 514);
       int mapnorth = 0;
@@ -153,23 +153,23 @@ namespace Main
       temp = target.ycordinate;
       Console.WriteLine(temp);
 
-      double distance = formula.GetHypotenuse(target, ary);
+      double distance = Formula.GetHypotenuse(target, ary);
       int mil = 0;
       switch (faction)
       {
         case "Us":
-          mil = (int)Math.Round(formula.usMetersToMill(distance));
+          mil = (int)Math.Round(Formula.usMetersToMill(distance));
           break;
         case "Gr":
-          mil = (int)Math.Round(formula.usMetersToMill(distance));
+          mil = (int)Math.Round(Formula.usMetersToMill(distance));
           break;
         case "Ru":
-          mil = (int)Math.Round(formula.ruMetersToMill(distance));
+          mil = (int)Math.Round(Formula.ruMetersToMill(distance));
           break;
 
       }
       Console.WriteLine(mil);
-      int angel = (int)formula.angleCalculation(target, ary, mapnorth, aryalingment);
+      int angel = (int)Formula.angleCalculation(target, ary, mapnorth, aryalingment);
       Console.WriteLine(angel);
 
 
