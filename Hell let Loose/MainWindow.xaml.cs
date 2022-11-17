@@ -47,13 +47,11 @@ namespace Main
 
     private void StartButton_Click(object sender, RoutedEventArgs e)
     {
-      
-      
-      
       Coordinates ary = new Coordinates(545, 514);
-      int mapnorth = 0;
-      int aryalingment = 90;
-      string faction = "Us";
+      int mapnorth = Convert.ToInt32(txtBoxMapnorth.Text);
+      string faction = GetValue.getAryTyp(cBoxTyp.SelectedIndex);
+      int aryalignment = GetValue.GetPosition(cBoxPosition.SelectedIndex);
+      
       Thread.Sleep(2000);
       do
       {
@@ -74,7 +72,7 @@ namespace Main
             mil = (int)Math.Round(Formula.ruMetersToMill(distance));
             break;
 
-        } int angel = (int)Formula.angleCalculation(target, ary, mapnorth, aryalingment);
+        } int angel = (int)Formula.angleCalculation(target, ary, mapnorth, aryalignment);
         Action.OpenMap();
 
         Thread.Sleep(1000);
