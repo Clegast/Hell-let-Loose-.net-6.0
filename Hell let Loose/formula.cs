@@ -21,12 +21,12 @@ namespace Main
     }
 
     internal static double ruMetersToMill(double Hypotenuse){
-      return Hypotenuse * -0.2136691176 + 1141.721500;
+      return (Hypotenuse * -0.2136691176 + 1141.721500) + 5;
     }
 
     internal static double usMetersToMill(double Hypotenuse)
     {
-      return Hypotenuse * -0.237035714285714 + 1001.46547619048;
+      return (Hypotenuse * -0.237035714285714 + 1001.46547619048) + 5;
     }
 
     internal static double angleCalculation(Coordinates target, Coordinates ary, double mapnorth, double AlignmentAry)
@@ -35,6 +35,7 @@ namespace Main
       double yMeters = target.ymetersdifference(ary);
       
       double angleTan = (Math.Atan(yMeters / xMeters))*180/Math.PI;
+      
       return mapnorth + AlignmentAry + angleTan;
     }
   }
