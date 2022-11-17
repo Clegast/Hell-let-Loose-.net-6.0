@@ -46,8 +46,8 @@ namespace Main
     {
       Coordinates ary = new Coordinates(545, 514);
       int mapnorth = Convert.ToInt32(txtBoxMapnorth.Text);
-      string faction = GetValue.getAryTyp(cBoxTyp.SelectedIndex);
-      int aryalignment = GetValue.GetPosition(cBoxPosition.SelectedIndex);
+      string faction = Main.GetValue.getAryTyp(cBoxTyp.SelectedIndex);
+      int aryalignment = Main.GetValue.GetPosition(cBoxPosition.SelectedIndex);
       
       Thread.Sleep(2000);
       do
@@ -70,7 +70,7 @@ namespace Main
             break;
 
         }
-        int angel = (int)Formula.angleCalculation(target, ary, mapnorth, aryalingment);
+        int angel = (int)Formula.angleCalculation(target, ary, mapnorth, aryalignment);
         Action.OpenMap();
 
         Thread.Sleep(1000);

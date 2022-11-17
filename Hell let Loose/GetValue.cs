@@ -4,29 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hell_let_Loose
+namespace Main
 {
-  internal class GetValue
+  internal static class GetValue
   {
-  public int GetPosition(int boxposition)
+  public static int GetPosition(int boxposition)
     {
-      int aryalingment = 270;
+      int alingment = 270;
      
       switch (boxposition){
         case 0:
-          aryalingment = 180;
+          alingment = 180;
           break;
         case 1:
-          aryalingment = 0;
+          alingment = 0;
           break;
         case 2:
-          aryalingment = 90;
+          alingment = 90;
           break ;
       }
-      return aryalingment;
+      return alingment;
     }
 
-    public string getAryTyp(int typ){
+    public static string getAryTyp(int typ){
       string faction = "Us";
       if (typ == 1) { faction = "Ru"; } 
       return faction;
