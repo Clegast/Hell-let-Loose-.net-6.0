@@ -107,29 +107,27 @@ namespace Main
 
         }
 
-        int AngelonScreen = Detection.Imgtotxt(1033, 960, 22, 12, 0) - 47;
-        int lastAngel = AngelonScreen;
-        if (AngelonScreen < 0)
-        {
-          AngelonScreen += 360;
-        }
+       
+        
+                int angleloder = angel - 47;
+                if (angleloder < 0) angleloder += 360;
+        
         Action.SwitchSeatTo(1);
-        while (AngelonScreen != angel)
+                int AngelonScreen = Detection.Imgtotxt(1033, 960, 22, 12, 0) ;
+                int lastAngel = AngelonScreen;
+                while (AngelonScreen != angleloder)
         {
           lastAngel = AngelonScreen;
-          if (AngelonScreen > angel)
+          if (AngelonScreen > angleloder)
           {
             Action.TurnLeft();
           }
-          if (AngelonScreen - 47 < angel)
+          if (AngelonScreen  < angleloder)
           {
             Action.TurnRight();
           }
-          AngelonScreen = Detection.Imgtotxt(1033, 960, 22, 12, lastAngel) - 47;
-          if (AngelonScreen < 0)
-          {
-            AngelonScreen += 360;
-          }
+          AngelonScreen = Detection.Imgtotxt(1033, 960, 22, 12, lastAngel);
+         
         }
         Action.SwitchSeatTo(0);
 
@@ -167,10 +165,11 @@ namespace Main
       Console.WriteLine(mil);
       int angel = (int)Formula.angleCalculation(target, ary, mapnorth, aryalingment);
       Console.WriteLine(angel);
+            
 
 
 
-    }
+        }
     private void SaveBtn_Click(object sender, RoutedEventArgs e)
     {
       string folder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
