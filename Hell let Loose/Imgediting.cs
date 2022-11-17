@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing.Imaging;
 
+
+
 namespace Main
 {
   internal static class Imgediting
@@ -13,32 +15,36 @@ namespace Main
     //Function that takes a screenshot
     internal static Bitmap Screenshot()
     {
-      using var bmpScreenshot = new Bitmap(1920, 1080);
+      var bmpScreenshot = new Bitmap(1920, 1080);
       using (var g = Graphics.FromImage(bmpScreenshot))
       {
         g.CopyFromScreen(0, 0, 0, 0,
         bmpScreenshot.Size, CopyPixelOperation.SourceCopy);
       }
-
       return bmpScreenshot;
     }
 
     public static Bitmap CropScreenshot(int x, int y, int Width, int Height)
     {
-      Bitmap bmpSource = Screenshot();
-      return Crop(x,y,Width,Height,bmpSource);
+      //Bitmap bmpSource = Screenshot();
+            
+      return Crop(x,y,Width,Height, Screenshot());
     }
 
-    public static Bitmap Crop(int x, int y, int Width, int Height, Bitmap bmpSource)
+    public static Bitmap Crop(int x, int y, int Width, int Height, Bitmap Source)
     {
-      Bitmap bmpDestination = new Bitmap(Width, Height);
-      Rectangle section = new Rectangle(x, y, Width, Height);
+      Bitmap Croped = new Bitmap(Width, Height);
+      for(int Y = y; Y < Height + y - 1; Y++)
+            {
+                for(int X= x; X < Width + x - 1; X++)
+                {
+                    Color color = Source.GetPixel(X,Y);
+                    Croped.SetPixel(X-x, Y-y, color);
+                }
+            }
 
-      using (Graphics g = Graphics.FromImage(bmpDestination))
-      {
-        g.DrawImage(bmpSource, 0, 0, section, GraphicsUnit.Pixel);
-      }
-      return bmpDestination;
+      
+      return Croped;
     }
 
     public static Bitmap Grayscale(Bitmap collerd)
