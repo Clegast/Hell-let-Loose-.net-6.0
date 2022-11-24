@@ -84,16 +84,16 @@ namespace Main
         {
             
             Keypresses.press(Keypresses.GetScanCodeShort("r"));
-            Thread.Sleep(100);
+            Thread.Sleep(800);
             Keypresses.releas(Keypresses.GetScanCodeShort("r"));
-            Thread.Sleep(3500);
+            Thread.Sleep(3000);
 
         }
 
         public static void Fire()
         {
             
-            Keypresses.mousclickleft(200);
+            Keypresses.mousclickleft(500);
         }
 
 
