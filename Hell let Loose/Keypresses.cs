@@ -11,18 +11,11 @@ using System.Threading.Tasks;
 
 namespace Main
 {
-  internal class Keypresses
+  internal static class Keypresses
   {
-    public void pressW()
-    {
+    
 
-    }
-    public void releasW()
-    {
-      releas(ScanCodeShort.KEY_W);
-    }
-
-    public ScanCodeShort GetScanCodeShort(string Key)
+    public static ScanCodeShort GetScanCodeShort(string Key)
     {
       switch (Key)
       {
@@ -66,7 +59,7 @@ namespace Main
 
 
     }
-    public void releas(ScanCodeShort a)
+    public static void releas(ScanCodeShort a)
     {
       INPUT[] Inputs = new INPUT[1];
       INPUT Input = new INPUT();
@@ -77,7 +70,7 @@ namespace Main
       SendInput(1, Inputs, INPUT.Size);
     }
     //https://stackoverflow.com/questions/20482338/simulate-keyboard-input-in-c-sharp
-    public void press(ScanCodeShort a)
+    public static void press(ScanCodeShort a)
     {
       INPUT[] Inputs = new INPUT[1];
       INPUT Input = new INPUT();
@@ -87,7 +80,7 @@ namespace Main
       Inputs[0] = Input;
       SendInput(1, Inputs, INPUT.Size);
     }
-        public void mousclickleft(int time)
+        public static void mousclickleft(int time)
         {
             INPUT[] Inputs = new INPUT[1];
             INPUT Input = new INPUT();
