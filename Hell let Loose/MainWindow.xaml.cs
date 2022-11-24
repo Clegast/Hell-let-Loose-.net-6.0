@@ -76,7 +76,7 @@ namespace Main
         Thread.Sleep(1000);
 
 
-        int MilonScreen = Detection.Imgtotxt(1800, 945, 50, 20, 622);
+        int MilonScreen = Detection.Imgtotxt(new Coordinates(1800, 945), 50, 20, 622);
         int lastMil = MilonScreen;
 
         while (MilonScreen != mil)
@@ -92,7 +92,7 @@ namespace Main
             Action.TurnUp();
           }
 
-          MilonScreen = Detection.Imgtotxt(1800, 945, 50, 20, lastMil);
+          MilonScreen = Detection.Imgtotxt(new Coordinates(1800, 945), 50, 20, lastMil);
           System.GC.Collect();
           if (MilonScreen == mil - 1)
           {
@@ -112,7 +112,7 @@ namespace Main
         
         Action.SwitchSeatTo(1);
                 Action.Reload();
-                int AngelonScreen = Detection.Imgtotxt(1033, 960, 22, 12, 0) ;
+                int AngelonScreen = Detection.Imgtotxt(new Coordinates(1033, 960), 22, 12, 0) ;
                 int lastAngel = AngelonScreen;
                 while (AngelonScreen != angleloder)
         {
@@ -125,7 +125,7 @@ namespace Main
           {
             Action.TurnRight();
           }
-          AngelonScreen = Detection.Imgtotxt(1033, 960, 22, 12, lastAngel);
+          AngelonScreen = Detection.Imgtotxt(new Coordinates(1033, 960), 22, 12, lastAngel);
                     System.GC.Collect();
                 }
         Action.SwitchSeatTo(0);

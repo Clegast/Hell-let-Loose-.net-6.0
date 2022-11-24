@@ -16,13 +16,13 @@ namespace Main
     }
 
     //function that crops the screenshot and then converts the number to an Integer
-    internal static int Imgtotxt(int x, int y, int Width, int Height, int last)
+    internal static int Imgtotxt(Coordinates coordinates, int Width, int Height, int last)
     {
       string pathCropped = Directory.GetCurrentDirectory() + "Screenshot.png";
 
       InputConvert inputconvert = new InputConvert();
 
-      Imgediting.CropScreenshot(x, y, Width, Height).Save(pathCropped);
+      Imgediting.CropScreenshot(coordinates, Width, Height).Save(pathCropped);
 
       var varResult = new IronTesseract().Read(pathCropped);
       string strResult = varResult.Text;
@@ -38,10 +38,10 @@ namespace Main
       Bitmap? NewScreenshot = null;
 
 
-      OldScreenshot = Imgediting.CropScreenshot(695, 268, 528, 528);
+      OldScreenshot = Imgediting.CropScreenshot( new Coordinates(695,268), 528, 528);
 
       Thread.Sleep(10000);
-      NewScreenshot = Imgediting.CropScreenshot(695, 268, 528, 528);
+      NewScreenshot = Imgediting.CropScreenshot(new Coordinates(695, 268), 528, 528);
 
       List<Suspeced> Posiblemarkers = new List<Suspeced>();
       for (int Y = 0; Y < NewScreenshot.Height; Y++)
@@ -63,7 +63,7 @@ namespace Main
             }
             if (ChanchedPixel >= 200)
             {
-              Suspeced a = new Suspeced(Imgediting.Crop(X, Y, 16, 16, OldScreenshot), Imgediting.Crop(X, Y, 16, 16, NewScreenshot), X, Y);
+              Suspeced a = new Suspeced(Imgediting.Crop(new Coordinates(X, Y), 16, 16, OldScreenshot), Imgediting.Crop(new Coordinates(X, Y), 16, 16, NewScreenshot), X, Y);
               Posiblemarkers.Add(a);
               Y = Y + 16;
             }

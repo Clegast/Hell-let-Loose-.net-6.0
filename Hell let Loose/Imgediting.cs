@@ -24,22 +24,22 @@ namespace Main
       return bmpScreenshot;
     }
 
-    public static Bitmap CropScreenshot(int x, int y, int Width, int Height)
+    public static Bitmap CropScreenshot(Coordinates coordinates, int Width, int Height)
     {
       //Bitmap bmpSource = Screenshot();
             
-      return Crop(x,y,Width,Height, Screenshot());
+      return Crop(coordinates,Width,Height, Screenshot());
     }
 
-    public static Bitmap Crop(int x, int y, int Width, int Height, Bitmap Source)
+    public static Bitmap Crop(Coordinates coordinates, int Width, int Height, Bitmap Source)
     {
       Bitmap Croped = new Bitmap(Width, Height);
-      for(int Y = y; Y < Height + y - 1; Y++)
+      for(int Y = (int)coordinates.ycordinate; Y < Height + (int)coordinates.ycordinate - 1; Y++)
             {
-                for(int X= x; X < Width + x - 1; X++)
+                for(int X= (int)coordinates.xcordinate; X < Width + (int)coordinates.xcordinate - 1; X++)
                 {
                     Color color = Source.GetPixel(X,Y);
-                    Croped.SetPixel(X-x, Y-y, color);
+                    Croped.SetPixel(X-(int)coordinates.xcordinate, Y-(int)coordinates.xcordinate, color);
                 }
             }
 
