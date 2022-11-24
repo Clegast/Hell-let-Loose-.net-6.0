@@ -33,13 +33,15 @@ namespace Main
 
     public static Bitmap Crop(Coordinates coordinates, int Width, int Height, Bitmap Source)
     {
+            int x = (int)coordinates.xcordinate;
+            int y = (int)coordinates.ycordinate;
       Bitmap Croped = new Bitmap(Width, Height);
-      for(int Y = (int)coordinates.ycordinate; Y < Height + (int)coordinates.ycordinate - 1; Y++)
+      for(int Y = y; Y < Height + y - 1; Y++)
             {
-                for(int X= (int)coordinates.xcordinate; X < Width + (int)coordinates.xcordinate - 1; X++)
+                for(int X= x; X < Width + x - 1; X++)
                 {
                     Color color = Source.GetPixel(X,Y);
-                    Croped.SetPixel(X-(int)coordinates.xcordinate, Y-(int)coordinates.xcordinate, color);
+                    Croped.SetPixel((X-x), (Y-y), color);
                 }
             }
 
