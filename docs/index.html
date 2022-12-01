@@ -15,11 +15,9 @@
     <h2>Explanation</h2>
 
     <p>
-        We are making a program that can automatically operate the artillery in the video game "Hell let Loose".  
+        We are making a program, that can automatically operate the artillery in the video game "Hell let Loose".  
         The program should recognize a marker, which can be set manually on the map. 
-        With the position of the artillery gun and the marker, the gun will then align itself to fire into the area of the marker. 
-        If we still find time, we will rewrite the program so that it can automatically detect the screen size and adjust the calculations to it. 
-        For now, we'll code it with the standard of 1080P.
+        With the position of the artillery and the marker, the gun will then align itself to fire into the area of the marker. 
     </p>
 
     <img onclick="SNOW_Weather()" src="/docs/geschütz0.png" alt="Homebutton" class="Homebutton">
@@ -27,28 +25,30 @@
     <h2>Information</h2>
 
     <p>
-        The Program is only working at a resolution from 1920x1080 and when you are not the Commander. 
-        It is not Recomended to play as Officer because the Detection of the marker wont find the differece between the markers.
-        Also it expects the game to be on the screen that is set in windows as the primary screen.
-        There may be issues if your Device is not up to spec.
+        The program is only working at a resolution from 1920x1080 and when you are not the commander. 
+        It is not recomended to play as Officer because the detection of the marker wont find the differece between the markers.
+        Also it expects the game to be on the screen that is set as the primary key in windows.
+        There may be issues if your device is not up to spec.
     </p>
 
     <h2>Manual</h2>  
 
     <p>
-        Once you are at the artillery you just need to Press the "Start" button and Tab back in the game. 
-        The Program is going to Open the map and wait for a Marker to Pop up. 
-        Once it found a Marker it is going to automatically Calculate the best settings and align the artillery Canon.
-        Then the artillery will fire three shots, after that it will start searching markers again.        
+        Once you are at the artillery you just need to press the "Start" button and tab back in the game. 
+        The program is going to open the map and wait for a marker to pop up. 
+        Once it found a marker it is going to automatically calculate the best settings and align the artillerys canon.
+        Then the artillery will fire three shots, after that it will start searching markers again. 
+        This cycle will be repeated as long as you want.        
     </p>
 
     <h2>Settings</h2> 
 
     <p><u>artillery position</u>: Here you need to select on which side of the map your artillery is positioned.</p>
-    <p><u>artillery type</u>: Select on which team you are</p>
-    <p><u>angle north</u>: The difference from the north of the map and the real north in degrees</p>
-    <p><u>artellery coordinates</u>: the position of the artillery in which you currently are</p>
-    <p><u>save settings</u>: if you press this button the Settings will still be the way you saved them the next time you open the programm</p>
+    <p><u>artillery type</u>: Select on which team you are.</p>
+    <p><u>map north</u>: The difference from the north of the map and the real north in degrees.</p>
+    <p><u>runtime</u>: The program will repeat the cicle of searching a marker and shooting for the amounts of minutes you tipe in.</p>
+    <p><u>artellery coordinates</u>: pixel coordinates of the artillery in which you currently are.</p>
+    <p><u>save settings</u>: if you press this button, the Settings will still be the way you saved them the next time you open the programm.</p>
     
 
 </body>
