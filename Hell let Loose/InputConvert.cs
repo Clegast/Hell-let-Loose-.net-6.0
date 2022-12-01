@@ -67,8 +67,54 @@ namespace Main
                     minus++;
                 }                
                 numberthree = Temp.getNumber(Imgediting.Crop(new Coordinates(13-minus, 3), 5, 10, Screenshot));
-                
-            };
+                if(numberone.Length <= 0||numberto.Length <=0||numberthree.Length <= 0)
+                {
+                    return last + 1;
+                }
+                else
+                {
+                    string temp = numberone + numberto + numberthree;
+                    return Int32.Parse(temp);
+                }
+            }
+            if(RGBfilter.IsAproximatlyCollor(Screenshot.GetPixel(8, 12), 210, 10)|| RGBfilter.IsAproximatlyCollor(Screenshot.GetPixel(9, 12), 210, 10)|| RGBfilter.IsAproximatlyCollor(Screenshot.GetPixel(10, 12), 210, 10))
+            {
+                string numberone = Temp.getNumber(Imgediting.Crop(new Coordinates(7, 3), 5, 10, Screenshot));
+                string numberto = "";
+                int minus = 0;
+                if (numberone == "1")
+                {
+                    minus++;
+
+                }
+                numberto = Temp.getNumber(Imgediting.Crop(new Coordinates(12 - minus, 3), 5, 10, Screenshot));
+
+                if (numberone.Length <= 0 || numberto.Length <= 0 )
+                {
+                    return last + 1;
+                }
+                else
+                {
+                    string temp = numberone + numberto ;
+                    return Int32.Parse(temp);
+                }
+
+            }
+            else
+            {
+                string numberone = Temp.getNumber(Imgediting.Crop(new Coordinates(9, 3), 5, 10, Screenshot));
+                if (numberone.Length <= 0 )
+                {
+                    return last + 1;
+                }
+                else
+                {
+                  
+                    return Int32.Parse(numberone);
+
+                }
+
+            ;
             
 
 
