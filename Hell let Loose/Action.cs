@@ -82,7 +82,7 @@ namespace Main
         }
         public static void Reload()
         {
-            
+            Thread.Sleep(1000);
             Keypresses.press(Keypresses.GetScanCodeShort("r"));
             Thread.Sleep(800);
             Keypresses.releas(Keypresses.GetScanCodeShort("r"));
