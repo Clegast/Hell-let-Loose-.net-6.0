@@ -49,7 +49,7 @@ namespace Main
       return i;
     }
 
-    public static void saveData(int boxPosition, int boxTyp, string mapNorth, string Runtime)
+    public static void saveData(int boxPosition, int boxTyp, string mapNorth, string Runtime, string AryX, string AryY)
     {
       string folder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
       string specificFolder = folder + "/HLLMod";
@@ -60,6 +60,9 @@ namespace Main
       settingList.Add(boxTyp);
       settingList.Add(Convert.ToInt32(mapNorth)); 
       settingList.Add(Convert.ToInt32(Runtime));
+      settingList.Add(Convert.ToInt32(AryX));
+      settingList.Add(Convert.ToInt32(AryY));
+
 
       string json = JsonSerializer.Serialize(settingList);
       File.WriteAllText(jsonFile, json);

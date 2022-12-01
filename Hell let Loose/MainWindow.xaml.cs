@@ -36,6 +36,8 @@ namespace Main
       cBoxTyp.SelectedIndex = settings[1];
       txtBoxMapnorth.Text = Convert.ToString(settings[2]);
       txtBoxRuntime.Text = Convert.ToString(settings[3]);
+      txtBoxXPosition.Text = Convert.ToString(settings[4]);
+      txtBoxYPosition.Text = Convert.ToString(settings[5]);
     }
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
@@ -44,7 +46,7 @@ namespace Main
 
     private void StartButton_Click(object sender, RoutedEventArgs e)
     {
-      Coordinates ary = new Coordinates(545, 514);
+      Coordinates ary = new Coordinates(Convert.ToInt32(txtBoxXPosition.Text), Convert.ToInt32(txtBoxYPosition.Text));
       int mapnorth = Convert.ToInt32(txtBoxMapnorth.Text);
       string faction = Main.GetValue.getAryTyp(cBoxTyp.SelectedIndex);
       int aryalignment = Main.GetValue.GetPosition(cBoxPosition.SelectedIndex);
@@ -54,7 +56,7 @@ namespace Main
       Stopwatch s = new Stopwatch();
       s.Start();
       while (s.Elapsed < TimeSpan.FromMinutes(Convert.ToInt32(txtBoxRuntime.Text)))
-      {
+      { 
         Action.OpenMap();
                 Thread.Sleep(1000);
         Coordinates target = Detection.GetTarget();
@@ -157,7 +159,7 @@ namespace Main
       string folder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
       string specificFolder = folder + "/HLLMod";
       string jsonFile = specificFolder + "/Settings.json";
-      SaveSettings.saveData(cBoxPosition.SelectedIndex, cBoxTyp.SelectedIndex, txtBoxMapnorth.Text, txtBoxRuntime.Text);
+      SaveSettings.saveData(cBoxPosition.SelectedIndex, cBoxTyp.SelectedIndex, txtBoxMapnorth.Text, txtBoxRuntime.Text, txtBoxXPosition.Text, txtBoxYPosition.Text);
     }
     private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
     {
