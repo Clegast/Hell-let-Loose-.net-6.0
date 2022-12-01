@@ -3,6 +3,9 @@ using System.Drawing;
 using System.IO;
 using IronOcr;
 using System.Threading;
+using System.Drawing.Imaging;
+using System.Runtime.Intrinsics.X86;
+using Hell_let_Loose;
 
 namespace Main
 {
@@ -23,8 +26,10 @@ namespace Main
       InputConvert inputconvert = new InputConvert();
 
       Imgediting.CropScreenshot(coordinates, Width, Height).Save(pathCropped);
+            Imgediting.CropScreenshot(coordinates, Width, Height).Save(@"C:\Users\linus\Desktop\ary.png", ImageFormat.Png);
+            Imgediting.Screenshot().Save(@"C:\Users\linus\Desktop\aryall.png", ImageFormat.Png);
 
-      var varResult = new IronTesseract().Read(pathCropped);
+            var varResult = new IronTesseract().Read(pathCropped);
       string strResult = varResult.Text;
       int intResult = inputconvert.Convert(strResult, last);
 
@@ -39,17 +44,18 @@ namespace Main
 
 
       OldScreenshot = Imgediting.CropScreenshot( new Coordinates(695,268), 528, 528);
-
-      Thread.Sleep(10000);
+            OldScreenshot.Save(@"C:\Users\linus\Desktop\oldmap.png", ImageFormat.Png);
+            Thread.Sleep(10000);
       NewScreenshot = Imgediting.CropScreenshot(new Coordinates(695, 268), 528, 528);
+            NewScreenshot.Save(@"C:\Users\linus\Desktop\newmap.png", ImageFormat.Png);
 
-      List<Suspeced> Posiblemarkers = new List<Suspeced>();
+            List<Suspeced> Posiblemarkers = new List<Suspeced>();
       for (int Y = 0; Y < NewScreenshot.Height; Y++)
       {
         for (int X = 0; X < NewScreenshot.Width; X++)
         {
           int ChanchedPixel = 0;
-          if (OldScreenshot.GetPixel(X, Y) != NewScreenshot.GetPixel(X, Y))
+          if (RGBfilter.IsNotBackgroundNoice( OldScreenshot.GetPixel(X, Y), NewScreenshot.GetPixel(X, Y)))
           {
             ChanchedPixel++;
             for (int Ytest = Y; Ytest < Y + 16 && Ytest < NewScreenshot.Height; Ytest++)
@@ -64,7 +70,9 @@ namespace Main
             if (ChanchedPixel >= 200)
             {
               Suspeced a = new Suspeced(Imgediting.Crop(new Coordinates(X, Y), 16, 16, OldScreenshot), Imgediting.Crop(new Coordinates(X, Y), 16, 16, NewScreenshot), X, Y);
-              Posiblemarkers.Add(a);
+                            Imgediting.Crop(new Coordinates(X, Y), 16, 16, OldScreenshot).Save(@"C:\Users\linus\Desktop\oldmarker.png", ImageFormat.Png);
+                            Imgediting.Crop(new Coordinates(X, Y), 16, 16, NewScreenshot).Save(@"C:\Users\linus\Desktop\newmarker.png", ImageFormat.Png);
+                            Posiblemarkers.Add(a);
               Y = Y + 16;
             }
           }

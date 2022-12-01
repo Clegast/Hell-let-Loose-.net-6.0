@@ -56,6 +56,7 @@ namespace Main
       while (s.Elapsed < TimeSpan.FromMinutes(Convert.ToInt32(txtBoxRuntime.Text)))
       {
         Action.OpenMap();
+                Thread.Sleep(1000);
         Coordinates target = Detection.GetTarget();
 
         double distance = Formula.GetHypotenuse(target, ary);
@@ -115,7 +116,7 @@ namespace Main
         
         Action.SwitchSeatTo(1);
                 Action.Reload();
-                int AngelonScreen = Detection.Imgtotxt(new Coordinates(1033, 960), 22, 12, 0) ;
+                int AngelonScreen = Detection.Imgtotxt(new Coordinates(949, 1033), 22, 12, 0) ;
                 int lastAngel = AngelonScreen;
                 while (AngelonScreen != angleloder)
         {
@@ -128,7 +129,7 @@ namespace Main
           {
             Action.TurnRight();
           }
-          AngelonScreen = Detection.Imgtotxt(new Coordinates(1033, 960), 22, 12, lastAngel);
+          AngelonScreen = Detection.Imgtotxt(new Coordinates(949, 1033), 22, 12, lastAngel);
                     System.GC.Collect();
                 }
         Action.SwitchSeatTo(0);
@@ -145,36 +146,8 @@ namespace Main
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-      Coordinates ary = new Coordinates(545, 514);
-      int mapnorth = 0;
-      int aryalingment = 90;
-      string faction = "Us";
-      Thread.Sleep(2000);
-      Coordinates target = Detection.GetTarget();
-      double temp = target.xcordinate;
-      Console.WriteLine(temp);
-      temp = target.ycordinate;
-      Console.WriteLine(temp);
-
-      double distance = Formula.GetHypotenuse(target, ary);
-      int mil = 0;
-      switch (faction)
-      {
-        case "Us":
-          mil = (int)Math.Round(Formula.usMetersToMill(distance));
-          break;
-        case "Gr":
-          mil = (int)Math.Round(Formula.usMetersToMill(distance));
-          break;
-        case "Ru":
-          mil = (int)Math.Round(Formula.ruMetersToMill(distance));
-          break;
-
-      }
-      Console.WriteLine(mil);
-      int angel = (int)Formula.angleCalculation(target, ary, mapnorth, aryalingment);
-      Console.WriteLine(angel);
-            
+            Thread.Sleep(2000);
+            int AngelonScreen = Detection.Imgtotxt(new Coordinates(949, 1032), 22, 15, 0);
 
 
 
