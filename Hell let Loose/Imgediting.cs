@@ -36,9 +36,9 @@ namespace Main
             int x = (int)coordinates.xcordinate;
             int y = (int)coordinates.ycordinate;
       Bitmap Croped = new Bitmap(Width, Height);
-      for(int Y = y; Y < Height + y - 1; Y++)
+      for(int Y = y; Y <= Height + y - 1; Y++)
             {
-                for(int X= x; X < Width + x - 1; X++)
+                for(int X= x; X <= Width + x - 1; X++)
                 {
                     Color color = Source.GetPixel(X,Y);
                     Croped.SetPixel((X-x), (Y-y), color);
