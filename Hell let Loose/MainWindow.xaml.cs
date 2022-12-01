@@ -55,7 +55,7 @@ namespace Main
 
       Stopwatch s = new Stopwatch();
       s.Start();
-      while (s.Elapsed < TimeSpan.FromMinutes(Convert.ToInt32(txtBoxRuntime.Text)))
+      //while (s.Elapsed < TimeSpan.FromMinutes(Convert.ToInt32(txtBoxRuntime.Text)))
       { 
         Action.OpenMap();
                 Thread.Sleep(1000);
@@ -118,7 +118,7 @@ namespace Main
         
         Action.SwitchSeatTo(1);
                 Action.Reload();
-                int AngelonScreen = Detection.Imgtotxt(new Coordinates(949, 1033), 22, 12, 0) ;
+                int AngelonScreen = InputConvert.AngleConverter(new Coordinates(949, 1033), 22, 12, 0) ;
                 int lastAngel = AngelonScreen;
                 while (AngelonScreen != angleloder)
         {
