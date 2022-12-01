@@ -6,33 +6,39 @@
         xmlns:local="clr-namespace:Main"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        Background= "LightGray">
+        Background="LightGray"
+        >
   <Grid Margin="-3,0,3,0">
-    <ComboBox x:Name="cBoxPosition" HorizontalAlignment="Left" Margin="40,124,0,0" VerticalAlignment="Top" Width="120" IsSynchronizedWithCurrentItem="True" FontFamily="Calibri" >
+    <ComboBox x:Name="cBoxPosition" HorizontalAlignment="Left" Margin="40,82,0,0" VerticalAlignment="Top" Width="120" IsSynchronizedWithCurrentItem="True" FontFamily="Calibri" >
       <ComboBoxItem Content="Oben"/>
       <ComboBoxItem Content="Unten"/>
       <ComboBoxItem Content="Links"/>
       <ComboBoxItem Content="Rechts"/>
     </ComboBox>
-    <Label x:Name="lbl1"  Content="artillery position" HorizontalAlignment="Left" Margin="40,88,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Calibri" FontWeight="Normal"/>
-    <Button x:Name="StartButton" Content="Start" HorizontalAlignment="Left" Margin="685,341,0,0" VerticalAlignment="Top" Click="StartButton_Click" FontFamily="Calibri" FontSize="16" Height="44" Width="80"/>
-    <ComboBox x:Name="cBoxTyp" HorizontalAlignment="Left" Margin="238,124,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri">
+    <Label x:Name="lbl1" Background="LightGray" Content="artillery position" HorizontalAlignment="Left" Margin="40,41,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Calibri" FontWeight="Normal"/>
+    <Button x:Name="StartButton" Content="Start" Margin="0,0,50,50" Click="StartButton_Click" FontFamily="Calibri" FontSize="16" HorizontalAlignment="Right" Width="95" Height="44" VerticalAlignment="Bottom"/>
+    <ComboBox x:Name="cBoxTyp" HorizontalAlignment="Left" Margin="238,82,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri">
       <ComboBoxItem Content="Ge/Us"/>
       <ComboBoxItem Content="Ru"/>
     </ComboBox>
-    <Label x:Name="lbl2" Content="artillery type" HorizontalAlignment="Left" Margin="238,93,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Calibri"/>
-    <TextBox x:Name="txtBoxMapnorth" HorizontalAlignment="Left" Margin="40,217,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="16" PreviewTextInput="NumberValidationTextBox"/>
-    <Label x:Name="lbl3" Content="Map North" HorizontalAlignment="Left" Margin="40,176,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16"/>
+    <Label x:Name="lbl2" Background="LightGray" Content="artillery type" HorizontalAlignment="Left" Margin="238,41,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Calibri"/>
+    <TextBox x:Name="txtBoxMapnorth" HorizontalAlignment="Left" Margin="40,184,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="16" PreviewTextInput="NumberValidationTextBox"/>
+    <Label x:Name="lbl3" Background="LightGray" Content="Map North" HorizontalAlignment="Left" Margin="40,144,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16"/>
     <Button Content="Test" HorizontalAlignment="Left" Margin="400,345,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-    <Button x:Name="SaveBtn" Content="save settings" HorizontalAlignment="Left" Margin="670,80,0,0" VerticalAlignment="Top" Click="SaveBtn_Click" Height="23" Width="95"/>
-    <TextBox x:Name="txtBoxRuntime" HorizontalAlignment="Left" Margin="238,217,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="16" PreviewTextInput="NumberValidationTextBox"/>
-    <Label x:Name="lbl4" Content="Runtime (min)" HorizontalAlignment="Left" Margin="238,176,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16"/>
-    <Button Content="Help" HorizontalAlignment="Left" Name="Btn_Help" Margin="670,41,0,0" VerticalAlignment="Top" Height="23" Width="95" Click="Button_Click_Help"/>
-    <Label x:Name="lbl5" Content="artillery coordinates" HorizontalAlignment="Left" Margin="40,283,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16"/>
-    <Label x:Name="lbl6" Content="X:" HorizontalAlignment="Left" Margin="40,318,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16"/>
-    <Label x:Name="lbl7" Content="Y:" HorizontalAlignment="Left" Margin="40,350,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16"/>
+    <Button x:Name="SaveBtn" Content="save settings" Margin="0,80,50,0" VerticalAlignment="Top" Click="SaveBtn_Click" Height="23" HorizontalAlignment="Right" Width="95"/>
+    <TextBox x:Name="txtBoxRuntime" HorizontalAlignment="Left" Margin="238,184,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="16" PreviewTextInput="NumberValidationTextBox"/>
+    <Label x:Name="lbl4" Background="LightGray" Content="Runtime (min)" HorizontalAlignment="Left" Margin="238,144,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16"/>
+    <Button Content="Help" HorizontalAlignment="Right" Name="Btn_Help" Margin="0,41,50,0" VerticalAlignment="Top" Height="23" Width="95" Click="Button_Click_Help"/>
+    <Label x:Name="lbl5" Background="LightGray" Content="artillery coordinates" HorizontalAlignment="Left" Margin="40,283,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16"/>
+    <Label x:Name="lbl6" Background="LightGray" Content="X:" HorizontalAlignment="Left" Margin="40,318,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16"/>
+    <Label x:Name="lbl7" Background="LightGray" Content="Y:" HorizontalAlignment="Left" Margin="40,350,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16"/>
     <TextBox x:Name="txtBoxXPosition" HorizontalAlignment="Left" Margin="81,322,0,0" TextWrapping="Wrap" Text="545" VerticalAlignment="Top" Width="47" FontFamily="Calibri" FontSize="16" PreviewTextInput="NumberValidationTextBox"/>
     <TextBox x:Name="txtBoxYPosition" HorizontalAlignment="Left" Margin="81,354,0,0" TextWrapping="Wrap" Text="514" VerticalAlignment="Top" Width="47" FontFamily="Calibri" FontSize="16" PreviewTextInput="NumberValidationTextBox"/>
+
+    <Grid.Background>
+      <ImageBrush ImageSource= "\HLLBackground.jpg" Stretch="Fill"/>
+    </Grid.Background>
+
 
   </Grid>
 </Window>
