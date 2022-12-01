@@ -26,8 +26,8 @@ namespace Main
       InputConvert inputconvert = new InputConvert();
 
       Imgediting.CropScreenshot(coordinates, Width, Height).Save(pathCropped);
-            Imgediting.CropScreenshot(coordinates, Width, Height).Save(@"C:\Users\linus\Desktop\ary.png", ImageFormat.Png);
-            Imgediting.Screenshot().Save(@"C:\Users\linus\Desktop\aryall.png", ImageFormat.Png);
+            Imgediting.CropScreenshot(coordinates, Width, Height).Save(@"C:\Users\clega\Desktop\ary.png", ImageFormat.Png);
+            Imgediting.Screenshot().Save(@"C:\Users\clega\Desktop\aryall.png", ImageFormat.Png);
 
             var varResult = new IronTesseract().Read(pathCropped);
       string strResult = varResult.Text;
