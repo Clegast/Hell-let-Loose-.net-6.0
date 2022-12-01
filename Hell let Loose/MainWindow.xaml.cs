@@ -35,7 +35,7 @@ namespace Main
       cBoxPosition.SelectedIndex = settings[0];
       cBoxTyp.SelectedIndex = settings[1];
       txtBoxMapnorth.Text = Convert.ToString(settings[2]);
-
+      txtBoxRuntime.Text = Convert.ToString(settings[3]);
     }
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
@@ -50,7 +50,10 @@ namespace Main
       int aryalignment = Main.GetValue.GetPosition(cBoxPosition.SelectedIndex);
       
       Thread.Sleep(2000);
-      do
+
+      Stopwatch s = new Stopwatch();
+      s.Start();
+      while (s.Elapsed < TimeSpan.FromMinutes(Convert.ToInt32(txtBoxRuntime.Text)))
       {
         Action.OpenMap();
         Coordinates target = Detection.GetTarget();
@@ -137,7 +140,7 @@ namespace Main
                     Action.SwitchSeatTo(0);
                 }
 
-      } while (true);
+      } 
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
@@ -181,12 +184,21 @@ namespace Main
       string folder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
       string specificFolder = folder + "/HLLMod";
       string jsonFile = specificFolder + "/Settings.json";
-      SaveSettings.saveData(cBoxPosition.SelectedIndex, cBoxTyp.SelectedIndex, txtBoxMapnorth.Text);
+      SaveSettings.saveData(cBoxPosition.SelectedIndex, cBoxTyp.SelectedIndex, txtBoxMapnorth.Text, txtBoxRuntime.Text);
     }
     private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
     {
       Regex regex = new Regex("[^0-9]+");
       e.Handled = regex.IsMatch(e.Text);
+    }
+
+    private void Button_Click_Help(object sender, RoutedEventArgs e)
+    {
+      System.Diagnostics.Process.Start(new ProcessStartInfo
+      {
+        FileName = "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        UseShellExecute = true
+      });
     }
   }
 }

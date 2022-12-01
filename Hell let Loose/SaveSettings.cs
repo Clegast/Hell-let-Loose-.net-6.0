@@ -45,11 +45,11 @@ namespace Main
           return settings;
         }
       }
-      int[] i = {0, 0, 0};
+      int[] i = {0, 0, 0, 0};
       return i;
     }
 
-    public static void saveData(int boxPosition, int boxTyp, string mapNorth)
+    public static void saveData(int boxPosition, int boxTyp, string mapNorth, string Runtime)
     {
       string folder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
       string specificFolder = folder + "/HLLMod";
@@ -58,7 +58,8 @@ namespace Main
       List<int> settingList = new List<int>();
       settingList.Add(boxPosition);
       settingList.Add(boxTyp);
-      settingList.Add(Convert.ToInt32(mapNorth));
+      settingList.Add(Convert.ToInt32(mapNorth)); 
+      settingList.Add(Convert.ToInt32(Runtime));
 
       string json = JsonSerializer.Serialize(settingList);
       File.WriteAllText(jsonFile, json);
