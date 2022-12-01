@@ -169,7 +169,7 @@ namespace Main
     {
       System.Diagnostics.Process.Start(new ProcessStartInfo
       {
-        FileName = "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        FileName = "https://clegast.github.io/Hell-let-Loose-.net-6.0/",
         UseShellExecute = true
       });
     }
