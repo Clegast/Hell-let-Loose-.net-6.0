@@ -36,7 +36,7 @@
     <TextBox x:Name="txtBoxYPosition" HorizontalAlignment="Left" Margin="81,354,0,0" TextWrapping="Wrap" Text="514" VerticalAlignment="Top" Width="47" FontFamily="Calibri" FontSize="16" PreviewTextInput="NumberValidationTextBox"/>
 
     <Grid.Background>
-      <ImageBrush ImageSource="" Stretch="Fill"/>
+      <ImageBrush ImageSource= "\HLLBackground.jpg" Stretch="Fill"/>
     </Grid.Background>
 
 
