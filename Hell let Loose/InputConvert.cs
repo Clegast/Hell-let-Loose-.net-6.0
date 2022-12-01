@@ -1,14 +1,16 @@
-﻿using System;
+﻿using Hell_let_Loose;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Main
 {
-    internal class InputConvert
+    internal static class InputConvert
     {
-        internal int Convert(string input, int last)
+        internal static int Convert(string input, int last)
         {
             input = input.Trim();
 
@@ -45,6 +47,34 @@ namespace Main
                     return last + 1;
                 }
             }
+        }
+        internal static int AngleConverter(Coordinates coordinates, int Width, int Height, int last)
+        {
+           Bitmap Screenshot = Imgediting.CropScreenshot(coordinates, Width, Height);
+            if (RGBfilter.IsAproximatlyCollor(Screenshot.GetPixel(6, 7), 210, 10)){
+                string numberone =Temp.getNumber(Imgediting.Crop(new Coordinates(3, 3), 5, 10, Screenshot));
+                string numberto = "";
+                string numberthree = "";
+                int minus = 0;
+                if (numberone == "1")
+                {
+                    minus++;
+                     
+                }
+                numberto = Temp.getNumber(Imgediting.Crop(new Coordinates(8 - minus, 3), 5, 10, Screenshot));
+                if (numberto == "1")
+                {
+                    minus++;
+                }                
+                numberthree = Temp.getNumber(Imgediting.Crop(new Coordinates(13-minus, 3), 5, 10, Screenshot));
+                
+            };
+            
+
+
+
+            
+
         }
     }
 }

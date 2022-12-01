@@ -23,7 +23,7 @@ namespace Main
     {
       string pathCropped = Directory.GetCurrentDirectory() + "Screenshot.png";
 
-      InputConvert inputconvert = new InputConvert();
+      
 
       Imgediting.CropScreenshot(coordinates, Width, Height).Save(pathCropped);
             Imgediting.CropScreenshot(coordinates, Width, Height).Save(@"C:\Users\linus\Desktop\ary.png", ImageFormat.Png);
@@ -31,7 +31,7 @@ namespace Main
 
             var varResult = new IronTesseract().Read(pathCropped);
       string strResult = varResult.Text;
-      int intResult = inputconvert.Convert(strResult, last);
+      int intResult = InputConvert.Convert(strResult, last);
 
       File.Delete(pathCropped);
       return intResult;
@@ -55,7 +55,7 @@ namespace Main
         for (int X = 0; X < NewScreenshot.Width; X++)
         {
           int ChanchedPixel = 0;
-          if (RGBfilter.IsNotBackgroundNoice( OldScreenshot.GetPixel(X, Y), NewScreenshot.GetPixel(X, Y)))
+          if (RGBfilter.IsNotBackgroundNoice( OldScreenshot.GetPixel(X, Y), NewScreenshot.GetPixel(X, Y),25))
           {
             ChanchedPixel++;
             for (int Ytest = Y; Ytest < Y + 16 && Ytest < NewScreenshot.Height; Ytest++)
