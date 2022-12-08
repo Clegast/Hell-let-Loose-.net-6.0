@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="HLLBackground.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="HLLBackground.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="IronOcr" Version="2022.11.10109" />
   </ItemGroup>
 
