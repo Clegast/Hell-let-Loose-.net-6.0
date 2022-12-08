@@ -119,22 +119,7 @@ namespace Main
         
         Action.SwitchSeatTo(1);
                 Action.Reload();
-                int AngelonScreen = InputConvert.AngleConverter(new Coordinates(949, 1033), 22, 12, 0) ;
-                int lastAngel = AngelonScreen;
-                while (AngelonScreen != angleloder)
-        {
-          lastAngel = AngelonScreen;
-          if (AngelonScreen > angleloder)
-          {
-            Action.TurnLeft();
-          }
-          if (AngelonScreen  < angleloder)
-          {
-            Action.TurnRight();
-          }
-          AngelonScreen = Detection.Imgtotxt(new Coordinates(949, 1033), 22, 12, lastAngel);
-                    System.GC.Collect();
-                }
+                ShepSoulution.AngelAlingh();
         Action.SwitchSeatTo(0);
                 for(int i = 0; i < 3; i++)
                 {

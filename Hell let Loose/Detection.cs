@@ -108,7 +108,7 @@ namespace Main
       return GetCoordinatsfromList(suspeceds);
     }
 
-    public static bool isHud()
+    public static bool isHudOn()
     {
       Bitmap Screenshot = Imgediting.Screenshot();
 
