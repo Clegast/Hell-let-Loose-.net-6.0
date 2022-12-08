@@ -17,6 +17,7 @@ using System.Threading;
 using System.IO;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using Hell_let_Loose;
 
 namespace Main
 {
@@ -149,7 +150,7 @@ namespace Main
     private void Button_Click(object sender, RoutedEventArgs e)
     {
             Thread.Sleep(2000);
-            int AngelonScreen = Detection.Imgtotxt(new Coordinates(949, 1032), 22, 15, 0);
+            ShepSoulution.AngelAlingh();
 
 
 
