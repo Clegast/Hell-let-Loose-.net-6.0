@@ -48,5 +48,25 @@ namespace Hell_let_Loose
 
             return false;
         }
+        public static bool IsAproximatlyCollor(System.Drawing.Color oldcolor, int R,int G,int B, int acuracy)
+        {
+
+            if (oldcolor.R + acuracy < R || oldcolor.R - acuracy > R)
+            {
+                return true;
+            }
+            if (oldcolor.G + acuracy < G || oldcolor.G - acuracy > G)
+            {
+                return true;
+            }
+            if (oldcolor.B + acuracy < G || oldcolor.B - acuracy > G)
+            {
+                return true;
+            }
+
+
+
+            return false;
+        }
     }
 }

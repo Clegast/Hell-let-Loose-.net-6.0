@@ -96,7 +96,16 @@ namespace Main
 
       Keypresses.mousclickleft(500);
     }
+        public static void PressT()
+        {
+
+            Keypresses.press(Keypresses.GetScanCodeShort("t"));
+            Thread.Sleep(1000);
+            Keypresses.releas(Keypresses.GetScanCodeShort("t"));
+            Thread.Sleep(500);
+
+        }
 
 
-  }
+    }
 }

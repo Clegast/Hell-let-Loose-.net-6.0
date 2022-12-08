@@ -21,32 +21,35 @@ namespace Main
       {
         case "w":
 
-          Console.WriteLine("w");
+         
           return ScanCodeShort.KEY_W;
         case "a":
-          Console.WriteLine("a");
+    
           return ScanCodeShort.KEY_A;
         case "s":
-          Console.WriteLine("s");
+         
           return ScanCodeShort.KEY_S;
         case "d":
-          Console.WriteLine("d");
+       
           return ScanCodeShort.KEY_D;
         case "r":
-          Console.WriteLine("r");
+      
           return ScanCodeShort.KEY_R;
         case "m":
-          Console.WriteLine("m");
+        
           return ScanCodeShort.KEY_M;
 
-        case "f1":
-          Console.WriteLine("f1");
+                case "t":
+
+                    return ScanCodeShort.KEY_T;
+                case "f1":
+        
           return ScanCodeShort.F1;
         case "f2":
-          Console.WriteLine("f2");
+       ;
           return ScanCodeShort.F2;
         case "mous-left":
-          Console.WriteLine("w");
+        
           return ScanCodeShort.KEY_W;
         default: return ScanCodeShort.KEY_W;
 
