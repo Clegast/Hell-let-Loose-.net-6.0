@@ -114,7 +114,7 @@ namespace Main
 
       for(int i = 0; i < Screenshot.Width; i++)
       {
-        if (Screenshot.GetPixel(i, 33).R >=180)
+        if (Screenshot.GetPixel(i, 33).R >=180 && Screenshot.GetPixel(i, 33).R <=190)
         {
           return true;
         }
