@@ -114,7 +114,8 @@ namespace Main
 
       for(int i = 0; i < Screenshot.Width; i++)
       {
-        if (Screenshot.GetPixel(i, 33).R == 2 && Screenshot.GetPixel(i, 33).G == 113 && Screenshot.GetPixel(i, 33).B == 187)
+        //if (Screenshot.GetPixel(i, 33).R == 2 && Screenshot.GetPixel(i, 33).G == 113 && Screenshot.GetPixel(i, 33).B == 187)
+        if (RGBfilter.IsAproximatlyCollor(Screenshot.GetPixel(i, 33), 2, 113, 187, 10))
         {
           return true;
         }
