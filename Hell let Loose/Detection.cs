@@ -26,9 +26,6 @@ namespace Main
       
 
       Imgediting.CropScreenshot(coordinates, Width, Height).Save(pathCropped);
-          //  Imgediting.CropScreenshot(coordinates, Width, Height).Save(@"C:\Users\clega\Desktop\ary.png", ImageFormat.Png);
-           // Imgediting.Screenshot().Save(@"C:\Users\clega\Desktop\aryall.png", ImageFormat.Png);
-
             var varResult = new IronTesseract().Read(pathCropped);
       string strResult = varResult.Text;
       int intResult = InputConvert.Convert(strResult, last);
@@ -44,10 +41,8 @@ namespace Main
 
 
       OldScreenshot = Imgediting.CropScreenshot( new Coordinates(695,268), 528, 528);
-       //     OldScreenshot.Save(@"C:\Users\linus\Desktop\oldmap.png", ImageFormat.Png);
             Thread.Sleep(10000);
       NewScreenshot = Imgediting.CropScreenshot(new Coordinates(695, 268), 528, 528);
-         //   NewScreenshot.Save(@"C:\Users\linus\Desktop\newmap.png", ImageFormat.Png);
 
             List<Suspeced> Posiblemarkers = new List<Suspeced>();
       for (int Y = 0; Y < NewScreenshot.Height; Y++)
@@ -106,20 +101,6 @@ namespace Main
 
       } while (suspeceds.Count == 0);
       return GetCoordinatsfromList(suspeceds);
-    }
-
-    public static bool isHudOn()
-    {
-      Bitmap Screenshot = Imgediting.Screenshot();
-
-      for(int i = 0; i < Screenshot.Width; i++)
-      {
-        if (Screenshot.GetPixel(i, 33).R >=180 && Screenshot.GetPixel(i, 33).R <=190)
-        {
-          return true;
-        }
-      }
-      return false;
     }
   }
 }
