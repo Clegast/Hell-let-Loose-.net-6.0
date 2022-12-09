@@ -56,7 +56,7 @@ namespace Main
 
       Stopwatch s = new Stopwatch();
       s.Start();
-      //while (s.Elapsed < TimeSpan.FromMinutes(Convert.ToInt32(txtBoxRuntime.Text)))
+      while (s.Elapsed < TimeSpan.FromMinutes(Convert.ToInt32(txtBoxRuntime.Text)))
       { 
         Action.OpenMap();
                 Thread.Sleep(1000);

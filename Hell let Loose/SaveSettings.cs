@@ -45,7 +45,7 @@ namespace Main
           return settings;
         }
       }
-      int[] i = {0, 0, 0, 0, 0, 0};
+      int[] i = {0, 0, 0, 10, 0, 0};
       return i;
     }
 
