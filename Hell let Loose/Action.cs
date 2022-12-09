@@ -93,8 +93,10 @@ namespace Main
 
     public static void Fire()
     {
+            Thread.Sleep(500);
 
-      Keypresses.mousclickleft(500);
+
+            Keypresses.mousclickleft(1000);
     }
         public static void PressT()
         {

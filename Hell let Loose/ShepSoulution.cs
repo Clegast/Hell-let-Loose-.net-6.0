@@ -19,7 +19,11 @@ namespace Hell_let_Loose
             bool IsNotOnSpot = true;
             while (IsNotOnSpot)
             {
-                Action.PressT();
+                if (Detection.isHudOn() == false)
+                {
+                    Action.PressT();
+
+                }
 
                 int x = ReadMarker();
                 if (x >= 1920)
@@ -29,7 +33,7 @@ namespace Hell_let_Loose
                 }
                 else
                 {
-                    if (x > 1850)
+                    if (x > 1880)
                     {
                         IsNotOnSpot = false;
                     }
@@ -39,7 +43,7 @@ namespace Hell_let_Loose
                     }
                 }
                 System.GC.Collect();
-                Action.PressT();
+                
             }
             
         }
