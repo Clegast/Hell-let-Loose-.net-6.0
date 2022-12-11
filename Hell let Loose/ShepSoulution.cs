@@ -17,9 +17,10 @@ namespace Hell_let_Loose
         {
             
             bool IsNotOnSpot = true;
+            int i = 0;
             while (IsNotOnSpot)
             {
-                if (Detection.isHudOn() == false)
+                if (i%10 ==0)
                 {
                     Action.PressT();
 
@@ -43,7 +44,7 @@ namespace Hell_let_Loose
                     }
                 }
                 System.GC.Collect();
-                
+                i++;
             }
             
         }

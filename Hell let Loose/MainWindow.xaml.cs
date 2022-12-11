@@ -114,8 +114,7 @@ namespace Main
 
        
         
-                int angleloder = angel - 47;
-                if (angleloder < 0) angleloder += 360;
+                
         
         Action.SwitchSeatTo(1);
                 Action.Reload();
