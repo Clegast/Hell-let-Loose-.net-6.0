@@ -132,14 +132,6 @@ namespace Main
       } 
     }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
-    {
-            Thread.Sleep(2000);
-            ShepSoulution.AngelAlingh();
-
-
-
-        }
     private void SaveBtn_Click(object sender, RoutedEventArgs e)
     {
       string folder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
