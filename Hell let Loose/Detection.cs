@@ -65,8 +65,6 @@ namespace Main
             if (ChanchedPixel >= 200)
             {
               Suspeced a = new Suspeced(Imgediting.Crop(new Coordinates(X, Y), 16, 16, OldScreenshot), Imgediting.Crop(new Coordinates(X, Y), 16, 16, NewScreenshot), X, Y);
-                          //  Imgediting.Crop(new Coordinates(X, Y), 16, 16, OldScreenshot).Save(@"C:\Users\linus\Desktop\oldmarker.png", ImageFormat.Png);
-                          // Imgediting.Crop(new Coordinates(X, Y), 16, 16, NewScreenshot).Save(@"C:\Users\linus\Desktop\newmarker.png", ImageFormat.Png);
                             Posiblemarkers.Add(a);
               Y = Y + 16;
             }
