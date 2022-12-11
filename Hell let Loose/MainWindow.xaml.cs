@@ -132,14 +132,6 @@ namespace Main
       } 
     }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
-    {
-            Thread.Sleep(2000);
-            ShepSoulution.AngelAlingh();
-
-
-
-        }
     private void SaveBtn_Click(object sender, RoutedEventArgs e)
     {
       string folder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
@@ -147,12 +139,19 @@ namespace Main
       string jsonFile = specificFolder + "/Settings.json";
       SaveSettings.saveData(cBoxPosition.SelectedIndex, cBoxTyp.SelectedIndex, txtBoxMapnorth.Text, txtBoxRuntime.Text, txtBoxXPosition.Text, txtBoxYPosition.Text);
     }
+
+
     private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
     {
       Regex regex = new Regex("[^0-9]+");
       e.Handled = regex.IsMatch(e.Text);
     }
 
+    /// <summary>
+    /// function that redirects the user to the help website
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Button_Click_Help(object sender, RoutedEventArgs e)
     {
       System.Diagnostics.Process.Start(new ProcessStartInfo

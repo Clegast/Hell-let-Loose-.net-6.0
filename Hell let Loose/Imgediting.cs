@@ -12,7 +12,11 @@ namespace Main
 {
   internal static class Imgediting
   {
-    //Function that takes a screenshot
+
+    /// <summary>
+    /// Function that takes a screenshot
+    /// </summary>
+    /// <returns>the screenshot as a bitmap</returns>
     internal static Bitmap Screenshot()
     {
       var bmpScreenshot = new Bitmap(1920, 1080);
@@ -24,28 +28,39 @@ namespace Main
       return bmpScreenshot;
     }
 
+    /// <summary>
+    /// function that takes a screenshot and crops it down to a given area
+    /// </summary>
+    /// <param name="coordinates">position from the top left corner from the area</param>
+    /// <param name="Width">width from ther area</param>
+    /// <param name="Height">hight from the area</param>
+    /// <returns>the area as a bitmap</returns>
     public static Bitmap CropScreenshot(Coordinates coordinates, int Width, int Height)
     {
-      //Bitmap bmpSource = Screenshot();
-            
-      return Crop(coordinates,Width,Height, Screenshot());
+      return Crop(coordinates, Width, Height, Screenshot());
     }
 
+    /// <summary>
+    /// function that takes a bitmap and crops it down to a given area
+    /// </summary>
+    /// <param name="coordinates">position from the top left corner from the area</param>
+    /// <param name="Width">width from ther area</param>
+    /// <param name="Height">hight from the area</param>
+    /// <param name="Source">the source bitmap</param>
+    /// <returns>>the area as a Bitmap</returns>
     public static Bitmap Crop(Coordinates coordinates, int Width, int Height, Bitmap Source)
     {
-            int x = (int)coordinates.xcordinate;
-            int y = (int)coordinates.ycordinate;
+      int x = (int)coordinates.xcordinate;
+      int y = (int)coordinates.ycordinate;
       Bitmap Croped = new Bitmap(Width, Height);
-      for(int Y = y; Y < Height + y - 1; Y++)
-            {
-                for(int X= x; X < Width + x - 1; X++)
-                {
-                    Color color = Source.GetPixel(X,Y);
-                    Croped.SetPixel((X-x), (Y-y), color);
-                }
-            }
-
-      
+      for (int Y = y; Y < Height + y - 1; Y++)
+      {
+        for (int X = x; X < Width + x - 1; X++)
+        {
+          Color color = Source.GetPixel(X, Y);
+          Croped.SetPixel((X - x), (Y - y), color);
+        }
+      }
       return Croped;
     }
 
