@@ -18,12 +18,18 @@ namespace Main
       return coordinates;
     }
 
-    //function that crops the screenshot and then converts the number to an Integer
+    /// <summary>
+    /// function that crops a screenshot
+    /// </summary>
+    /// <param name="coordinates">position from the top left corner of the area where the text is</param>
+    /// <param name="Width">Width of the area where the text is</param>
+    /// <param name="Height">hight of the area where the text is</param>
+    /// <param name="last">the result from the last time using this function</param>
+    /// <returns>the text that was read as an integer</returns>
+
     internal static int Imgtotxt(Coordinates coordinates, int Width, int Height, int last)
     {
       string pathCropped = Directory.GetCurrentDirectory() + "Screenshot.png";
-
-      
 
       Imgediting.CropScreenshot(coordinates, Width, Height).Save(pathCropped);
             var varResult = new IronTesseract().Read(pathCropped);
@@ -33,6 +39,11 @@ namespace Main
       File.Delete(pathCropped);
       return intResult;
     }
+
+    /// <summary>
+    /// function that compares two bitmaps
+    /// </summary>
+    /// <returns>a list of diferences</returns>
 
     public static List<Suspeced> Detecte()
     {
@@ -75,9 +86,13 @@ namespace Main
       Thread.Sleep(500);
 
       return Posiblemarkers;
-
-
     }
+
+    /// <summary>
+    /// function that takes the list of differences from the Detecte function
+    /// </summary>
+    /// <param name="Markers">the list that the Detecte function returns</param>
+    /// <returns>the pixel coordinates from where the difference is</returns>
     public static Coordinates GetCoordinatsfromList(List<Suspeced> Markers)
     {
       Suspeced suspeced = Markers[0];
@@ -86,7 +101,6 @@ namespace Main
       coordinates.ycordinate += 268;
       return coordinates;
     }
-
 
     public static Coordinates GetTarget()
     {

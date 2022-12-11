@@ -9,6 +9,10 @@ namespace Main
 {
   internal static class Action
   {
+
+    /// <summary>
+    /// function that presses the d key for 1 second
+    /// </summary>
     public static void TurnRight()
     {
 
@@ -17,6 +21,10 @@ namespace Main
       Keypresses.releas(Keypresses.GetScanCodeShort("d"));
 
     }
+
+    /// <summary>
+    /// function that presses the a key for 1 second
+    /// </summary>
     public static void TurnLeft()
     {
 
@@ -25,6 +33,10 @@ namespace Main
       Keypresses.releas(Keypresses.GetScanCodeShort("a"));
 
     }
+
+    /// <summary>
+    /// function that presses the w key for 0.25 seconds
+    /// </summary>
     public static void TurnUp()
     {
 
@@ -35,6 +47,10 @@ namespace Main
 
 
     }
+
+    /// <summary>
+    /// function that presses the s key for 0.25 seconds
+    /// </summary>
     public static void TurnDown()
     {
 
@@ -45,7 +61,7 @@ namespace Main
 
     }
     /// <summary>
-    /// swutches seat wehne the player is in a vehicle or an artillery peas only seat one and tow worke (for now)
+    /// swutches seat when the player is in a vehicle or an artillery piece. only seat one and two work (for now)
     /// </summary>
     /// <param name="SeatNumber">number of the seat to cance to starts at 0</param>
     public static void SwitchSeatTo(int SeatNumber)
@@ -69,9 +85,11 @@ namespace Main
           break;
 
       }
-
-
     }
+
+    /// <summary>
+    /// function that presses the m key for 0.1 seconds to open the map
+    /// </summary>
     public static void OpenMap()
     {
 
@@ -80,34 +98,42 @@ namespace Main
       Keypresses.releas(Keypresses.GetScanCodeShort("m"));
       Thread.Sleep(20);
 
-        }
-        public static void Reload()
-        {
-            Thread.Sleep(1000);
-            Keypresses.press(Keypresses.GetScanCodeShort("r"));
-            Thread.Sleep(800);
-            Keypresses.releas(Keypresses.GetScanCodeShort("r"));
-            Thread.Sleep(3000);
+    }
+
+    /// <summary>
+    /// function that Reloads the artillery piece
+    /// </summary>
+    public static void Reload()
+    {
+      Thread.Sleep(1000);
+      Keypresses.press(Keypresses.GetScanCodeShort("r"));
+      Thread.Sleep(800);
+      Keypresses.releas(Keypresses.GetScanCodeShort("r"));
+      Thread.Sleep(3000);
 
     }
 
+    /// <summary>
+    /// function that shoots
+    /// </summary>
     public static void Fire()
     {
-            Thread.Sleep(500);
+      Thread.Sleep(500);
 
-
-            Keypresses.mousclickleft(1000);
+      Keypresses.mousclickleft(1000);
     }
-        public static void PressT()
-        {
 
-            Keypresses.press(Keypresses.GetScanCodeShort("t"));
-            Thread.Sleep(1000);
-            Keypresses.releas(Keypresses.GetScanCodeShort("t"));
-            Thread.Sleep(500);
+    /// <summary>
+    /// function that presses T for 1 second
+    /// </summary>
+    public static void PressT()
+    {
 
-        }
-
+      Keypresses.press(Keypresses.GetScanCodeShort("t"));
+      Thread.Sleep(1000);
+      Keypresses.releas(Keypresses.GetScanCodeShort("t"));
+      Thread.Sleep(500);
 
     }
+  }
 }

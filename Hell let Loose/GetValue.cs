@@ -8,11 +8,12 @@ namespace Main
 {
   internal static class GetValue
   {
-  public static int GetPosition(int boxposition)
+    public static int GetPosition(int boxposition)
     {
       int alingment = 270;
-     
-      switch (boxposition){
+
+      switch (boxposition)
+      {
         case 0:
           alingment = 180;
           break;
@@ -21,19 +22,16 @@ namespace Main
           break;
         case 2:
           alingment = 90;
-          break ;
+          break;
       }
       return alingment;
     }
 
-    public static string getAryTyp(int typ){
+    public static string getAryTyp(int typ)
+    {
       string faction = "Us";
-      if (typ == 1) { faction = "Ru"; } 
+      if (typ == 1) { faction = "Ru"; }
       return faction;
-
     }
-    
-   
-    
   }
 }
