@@ -57,76 +57,8 @@ namespace Main
       Stopwatch s = new Stopwatch();
       s.Start();
       while (s.Elapsed < TimeSpan.FromMinutes(Convert.ToInt32(txtBoxRuntime.Text)))
-      { 
-        Action.OpenMap();
-                Thread.Sleep(1000);
-        Coordinates target = Detection.GetTarget();
-
-        double distance = Formula.GetHypotenuse(target, ary);
-        int mil = 0;
-        switch (faction)
-        {
-          case "Us":
-            mil = (int)Math.Round(Formula.usMetersToMill(distance));
-            break;
-          case "Gr":
-            mil = (int)Math.Round(Formula.usMetersToMill(distance));
-            break;
-          case "Ru":
-            mil = (int)Math.Round(Formula.ruMetersToMill(distance));
-            break;
-
-        }
-        int angel = (int)Formula.angleCalculation(target, ary, mapnorth, aryalignment);
-        Action.OpenMap();
-
-        Thread.Sleep(1000);
-
-
-        int MilonScreen = Detection.Imgtotxt(new Coordinates(1800, 945), 50, 20, 622);
-        int lastMil = MilonScreen;
-
-        while (MilonScreen != mil)
-        {
-          lastMil = new Int32();
-          lastMil = MilonScreen;
-          if (MilonScreen > mil)
-          {
-            Action.TurnDown();
-          }
-          if (MilonScreen < mil)
-          {
-            Action.TurnUp();
-          }
-
-          MilonScreen = Detection.Imgtotxt(new Coordinates(1800, 945), 50, 20, lastMil);
-          System.GC.Collect();
-          if (MilonScreen == mil - 1)
-          {
-            break;
-          }
-          else if (MilonScreen == mil + 1)
-          {
-            break;
-          }
-
-        }
-
-       
-        
-                
-        
-        Action.SwitchSeatTo(1);
-                Action.Reload();
-                ShepSoulution.AngelAlingh();
-        Action.SwitchSeatTo(0);
-                for(int i = 0; i < 3; i++)
-                {
-                    Action.Fire();
-                    Action.SwitchSeatTo(1);
-                    Action.Reload();
-                    Action.SwitchSeatTo(0);
-                }
+      {
+                fastfix.Main(ary, mapnorth,faction,aryalignment);
 
       } 
     }
